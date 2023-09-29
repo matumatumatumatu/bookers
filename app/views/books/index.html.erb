@@ -1,0 +1,33 @@
+<h1>Books</h1>
+<% if @book.errors.any? %>
+  <% error_count = @book.errors.count %>
+  <% if error_count == 1 %>
+    <p><%= error_count %> error prohibited this book from being saved:</p>
+  <% else %>
+    <p><%= error_count %> errors prohibited this book from being saved:</p>
+  <% end %>
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @book do |f| %>
+<h2>New book</h2>
+  <h4>タイトル</h4>
+  <%= f.text_field :title %>
+	
+  <h4>本文</h4>
+  <%= f.text_area :body %>
+  <%= f.submit 'Create Book' %>
+<% end %>
+  <% @books.each do |book| %>
+  <table>
+  　<td><%= book.title %></td> <!-- 本のタイトルを表示 -->
+    <td><%= book.body %></td>
+    <td><%= link_to 'Show', book_path(book) %></td>
+    <td><%= link_to 'Edit', edit_book_path(book) %></td>
+    <td><%= link_to 'Destroy', book_path(book), method: :delete,  "data-confirm" => "are you sure?"%></td>
+  </table>
+<% end %>
