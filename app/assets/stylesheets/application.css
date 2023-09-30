@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+ .main{
+    margin-left: 20px; /* 任意の余白の幅を指定します。 */
+}
+ 
+.sub1 {
+    margin-left: 50px; /* 任意の余白の幅を指定します。 */
+}
+
+.sub2 {
+    margin-left: 50px; /* 任意の余白の幅を指定します。 */
+}
+
+.bold-text{
+    font-weight: bold;
+}
